@@ -1,0 +1,5 @@
+﻿  ChessGame.cpp
+C:\Users\ludov\source\repos\ChessGame\ChessGame\ChessBoard.h(1,10): fatal error C1014: fichiers Include trop nombreux : profondeur = 1024
+  Pieces.cpp
+C:\Users\ludov\source\repos\ChessGame\ChessGame\ChessBoard.h(1,10): fatal error C1014: fichiers Include trop nombreux : profondeur = 1024
+  Génération de code en cours...
