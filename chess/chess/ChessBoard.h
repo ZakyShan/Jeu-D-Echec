@@ -11,4 +11,4 @@ public:
 	
 };
 
-void affiche(char chessboard[][8][3]);
+void affiche(char chessboard[8][8][3]);

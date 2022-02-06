@@ -1,13 +1,14 @@
 #include "ChessBoard.h"
 
-void affiche(char chessboard[][8][3]) {
+void affiche(char chessboard[8][8][3]) {
 	char a = 'A';
 	int nombre = 9;
-	for (int i = 1; i < 9; i++) {
+	int cmpt = 1;
+	for (int i = 0; i < 8; i++) {
 		
 		for (int letter = 0; letter < 8; letter++) {
 			if (letter == 0) {
-				std::cout << " " << nombre - i << " ";
+				std::cout << " " << nombre - cmpt++ << " ";
 			}
 			std::cout << "[";
 			for (int car = 0; car < 2; car++) {
@@ -30,24 +31,24 @@ Chessboard::Chessboard(){
 
 void Chessboard::initialisation()
 {
-	for (int i = 1; i <= 8; i++) {
+	for (int i = 0; i < 8; i++) {
 		for (int letter = 0; letter < 8; letter++) {
-			if (i > 2 && i < 7) {
+			if (i > 1 && i < 6) {
 				for (int k = 0; k < 2; k++) {
 					chessboard[i][letter][k] = 'O';
 				}
 			}
-			if (i == 7) {
+			if (i == 6) {
 				for (int k = 0; k < 2; k++) {
 					chessboard[i][letter][k] = Pawn(letter, i, true, "Pw").name[k];
 				}
 			}
-			if (i == 2) {
+			if (i == 1) {
 				for (int k = 0; k < 2; k++) {
 					chessboard[i][letter][k] = Pawn(letter, i, true, "Pb").name[k];
 				}
 			}
-			if (i == 1 || i == 8) {
+			if (i == 0 || i == 7) {
 				for (int k = 0; k < 2; k++) {
 					chessboard[i][letter][k] = 'O';
 				}
