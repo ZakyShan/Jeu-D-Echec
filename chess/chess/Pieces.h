@@ -2,22 +2,22 @@
 #include <iostream>
 
 class Pawn {
-	
-	public:
-		Pawn(int x, int y, bool white, const char name[3]);
-		//void movement(int &x, int &y, Pawn** chessboard[][8]);
-		char name[3];
 
-	private:
-		bool goodMove(int &x, int &y, Pawn chessboard[][8][3]);
-		bool isdntMove();
-		
+public:
+	Pawn(int x, int y, bool white, const char name[3]);
+	//void movement(int &x, int &y, Pawn** chessboard[][8]);
+	char name[3];
 
-		int x;
-		int y;
-		bool white;
-		bool move;
-		
+private:
+	bool goodMove(int& x, int& y, Pawn chessboard[][8][3]);
+	bool isdntMove();
+
+
+	int x;
+	int y;
+	bool white;
+	bool move;
+
 };
 /*
 class King : Pawn {
@@ -43,7 +43,7 @@ class Queen : Pawn {
 class Bishop : Pawn {
 public:
 	Bishop(int x, int y, char team);
-	
+
 private:
 	bool goodMove(int x, int y);
 };
@@ -51,7 +51,7 @@ private:
 class Knight : Pawn {
 public:
 	Knight(int x, int y, char team);
-	
+
 private:
 	bool goodMove(int x, int y);
 };

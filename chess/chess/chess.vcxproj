@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{cdad7d37-536a-463e-a500-447382ae2c5e}</ProjectGuid>
-    <RootNamespace>ChessGame</RootNamespace>
+    <ProjectGuid>{3efc5dad-c94d-4e34-8a4b-403ac6d14de4}</ProjectGuid>
+    <RootNamespace>chess</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,13 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ChessBoard.h" />
+    <ClInclude Include="Pieces.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="ChessBoard.cpp" />
     <ClCompile Include="ChessGame.cpp" />
     <ClCompile Include="Pieces.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ChessBoard.h" />
-    <ClInclude Include="Pieces.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
