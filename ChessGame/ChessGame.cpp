@@ -2,10 +2,13 @@
 //
 
 #include <iostream>
-#include "Pieces.h"
+#include "ChessBoard.h"
+
 int main()
 {
-    std::cout << "";
+	Chessboard board;
+	affiche(board.chessboard);
+	
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
