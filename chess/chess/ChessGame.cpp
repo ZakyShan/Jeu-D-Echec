@@ -7,8 +7,9 @@
 int main()
 {
 	Chessboard board;
-	affiche(board.chessboard);
-	
+	afficheWhite(board.chessboard);
+	std::cout << std::endl;
+	afficheBlack(board.chessboard);
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage

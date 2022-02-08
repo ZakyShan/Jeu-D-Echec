@@ -11,4 +11,5 @@ public:
 	
 };
 
-void affiche(char chessboard[8][8][3]);
+void afficheWhite(char chessboard[8][8][3]); 
+void afficheBlack(char chessboard[8][8][3]);

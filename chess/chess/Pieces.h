@@ -9,7 +9,7 @@ public:
 	char name[3];
 
 private:
-	bool goodMove(int& x, int& y, Pawn chessboard[][8][3]);
+	bool goodMove(int& x, int& y, char chessboard[][8][3]);
 	bool isdntMove();
 
 
@@ -19,6 +19,9 @@ private:
 	bool move;
 
 };
+bool whiteorblack(int x, int y, char chessboard[][8][3]);
+bool whiteorblack(char* chr, char chessboard[][8][3]);
+bool emptyBox(int x, int y, char chessboard[8][8][3]);
 /*
 class King : Pawn {
 	public:

@@ -1,2 +1,13 @@
 ﻿  ChessBoard.cpp
+C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(38,37): warning C4305: '=' : troncation de 'int' à 'char'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(38,33): warning C4309: '=' : troncation de valeur de constante
+C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(53,37): warning C4305: '=' : troncation de 'int' à 'char'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(53,33): warning C4309: '=' : troncation de valeur de constante
+C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(58,37): warning C4305: '=' : troncation de 'int' à 'char'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(58,33): warning C4309: '=' : troncation de valeur de constante
+C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(62,38): warning C4305: '=' : troncation de 'int' à 'char'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(62,34): warning C4309: '=' : troncation de valeur de constante
+  ChessGame.cpp
+  Pieces.cpp
+  Génération de code en cours...
   chess.vcxproj -> C:\JeuDechec\Jeu-D-Echec\chess\x64\Debug\chess.exe
