@@ -5,7 +5,7 @@ void afficheWhite(char chessboard[8][8][3]) {
 	int nombre = 9;
 	int cmpt = 1;
 	for (int i = 0; i < 8; i++) {
-		
+
 		for (int letter = 0; letter < 8; letter++) {
 			if (letter == 0) {
 				std::cout << " " << nombre - cmpt++ << " ";
@@ -17,7 +17,7 @@ void afficheWhite(char chessboard[8][8][3]) {
 			std::cout << "]" << " ";
 		}
 		std::cout << std::endl;
-		
+
 	}
 	std::cout << "    ";
 	for (int i = 1; i <= 8; i++) {
@@ -25,7 +25,7 @@ void afficheWhite(char chessboard[8][8][3]) {
 	}
 }
 
-Chessboard::Chessboard(){
+Chessboard::Chessboard() {
 	Chessboard::initialisation();
 }
 
@@ -63,13 +63,13 @@ void Chessboard::initialisation()
 					}
 				}
 			}
-		
+
 		}
 
 	}
 }
 
-void afficheBlack(char chessboard[8][8][3]){
+void afficheBlack(char chessboard[8][8][3]) {
 	char a = 'H';
 	int nombre = 0;
 	int cmpt = 1;

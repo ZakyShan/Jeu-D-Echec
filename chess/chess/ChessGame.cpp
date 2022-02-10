@@ -4,11 +4,18 @@
 #include <iostream>
 #include "ChessBoard.h"
 
+using namespace std;
 int main()
 {
 	Chessboard board;
+	cout << endl;
+	cout << "------------:Tour Blanc:--------------" << endl;
+	cout << endl;
 	afficheWhite(board.chessboard);
-	std::cout << std::endl;
+	cout << endl;
+	cout << endl;
+	cout << "------------:Tour noir:--------------" << endl;
+	cout << endl;
 	afficheBlack(board.chessboard);
 }
 

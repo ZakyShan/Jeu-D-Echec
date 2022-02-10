@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Pieces.h"
+#include "Pawn.h"
 
 
 
@@ -8,8 +8,8 @@ public:
 	Chessboard();
 	void initialisation();
 	char chessboard[8][8][3];
-	
+
 };
 
-void afficheWhite(char chessboard[8][8][3]); 
+void afficheWhite(char chessboard[8][8][3]);
 void afficheBlack(char chessboard[8][8][3]);

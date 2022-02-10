@@ -1,13 +1,37 @@
-﻿  ChessBoard.cpp
-C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(38,37): warning C4305: '=' : troncation de 'int' à 'char'
-C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(38,33): warning C4309: '=' : troncation de valeur de constante
-C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(53,37): warning C4305: '=' : troncation de 'int' à 'char'
-C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(53,33): warning C4309: '=' : troncation de valeur de constante
-C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(58,37): warning C4305: '=' : troncation de 'int' à 'char'
-C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(58,33): warning C4309: '=' : troncation de valeur de constante
-C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(62,38): warning C4305: '=' : troncation de 'int' à 'char'
-C:\JeuDechec\Jeu-D-Echec\chess\chess\ChessBoard.cpp(62,34): warning C4309: '=' : troncation de valeur de constante
-  ChessGame.cpp
-  Pieces.cpp
+﻿  Piece.cpp
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Pawn.h(3,12): error C2011: 'Pawn' : redéfinition du type 'class'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Pawn.h(3): message : voir la déclaration de 'Pawn'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.h(3,16): error C2011: 'Position' : redéfinition du type 'class'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.h(3): message : voir la déclaration de 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Piece.cpp(5,39): error C2027: utilisation du type non défini 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.h(3): message : voir la déclaration de 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Piece.cpp(6,22): error C2027: utilisation du type non défini 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.h(3): message : voir la déclaration de 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Piece.cpp(10,8): error C2027: utilisation du type non défini 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.h(3): message : voir la déclaration de 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Piece.cpp(11,1): error C2027: utilisation du type non défini 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.h(3): message : voir la déclaration de 'Position'
+  Position.cpp
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Pawn.h(3,12): error C2011: 'Pawn' : redéfinition du type 'class'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Pawn.h(3): message : voir la déclaration de 'Pawn'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.h(3,16): error C2011: 'Position' : redéfinition du type 'class'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.h(3): message : voir la déclaration de 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.cpp(6,11): error C2027: utilisation du type non défini 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.h(3): message : voir la déclaration de 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.cpp(7,1): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.cpp(8,2): error C2355: 'this' : ne peut être référencé qu'à l'intérieur de fonctions membres non static ou d'initialiseurs de membres de données non static
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.cpp(9,2): error C2355: 'this' : ne peut être référencé qu'à l'intérieur de fonctions membres non static ou d'initialiseurs de membres de données non static
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.cpp(10,1): warning C4508: '{ctor}' : la fonction doit retourner une valeur ; type de retour 'void' pris par défaut
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.cpp(12,15): error C2027: utilisation du type non défini 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.h(3): message : voir la déclaration de 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.cpp(14,9): error C2355: 'this' : ne peut être référencé qu'à l'intérieur de fonctions membres non static ou d'initialiseurs de membres de données non static
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.cpp(17,15): error C2027: utilisation du type non défini 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.h(3): message : voir la déclaration de 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.cpp(19,9): error C2355: 'this' : ne peut être référencé qu'à l'intérieur de fonctions membres non static ou d'initialiseurs de membres de données non static
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.cpp(22,16): error C2027: utilisation du type non défini 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.h(3): message : voir la déclaration de 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.cpp(24,2): error C2355: 'this' : ne peut être référencé qu'à l'intérieur de fonctions membres non static ou d'initialiseurs de membres de données non static
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.cpp(27,16): error C2027: utilisation du type non défini 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.h(3): message : voir la déclaration de 'Position'
+C:\JeuDechec\Jeu-D-Echec\chess\chess\Position.cpp(29,2): error C2355: 'this' : ne peut être référencé qu'à l'intérieur de fonctions membres non static ou d'initialiseurs de membres de données non static
   Génération de code en cours...
-  chess.vcxproj -> C:\JeuDechec\Jeu-D-Echec\chess\x64\Debug\chess.exe
