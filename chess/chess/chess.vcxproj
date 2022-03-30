@@ -18,35 +18,10 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Cavalier.cpp" />
-    <ClCompile Include="Echiquier.cxx" />
-    <ClCompile Include="Fou.cpp" />
-    <ClCompile Include="Joueur.cxx" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Partie.cxx" />
-    <ClCompile Include="Piece.cxx" />
-    <ClCompile Include="Pion.cpp" />
-    <ClCompile Include="Reine.cpp" />
-    <ClCompile Include="Roi.cpp" />
-    <ClCompile Include="Tour.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Cavalier.h" />
-    <ClInclude Include="Echiquier.h" />
-    <ClInclude Include="Fou.h" />
-    <ClInclude Include="Joueur.h" />
-    <ClInclude Include="Partie.h" />
-    <ClInclude Include="Piece.h" />
-    <ClInclude Include="Pion.h" />
-    <ClInclude Include="Reine.h" />
-    <ClInclude Include="Roi.h" />
-    <ClInclude Include="Tour.h" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{3efc5dad-c94d-4e34-8a4b-403ac6d14de4}</ProjectGuid>
+    <ProjectGuid>{a7197fac-04dd-4f1c-9e0a-b0e6951ba557}</ProjectGuid>
     <RootNamespace>chess</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -97,19 +72,21 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <PublicIncludeDirectories>$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <LibraryPath>C:\JeuDechec\Jeu-D-Echec\chess\chess\freeglut\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\JeuDechec\Jeu-D-Echec\chess\chess\freeglut\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <PublicIncludeDirectories>$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <LibraryPath>C:\JeuDechec\Jeu-D-Echec\chess\chess\freeglut\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\JeuDechec\Jeu-D-Echec\chess\chess\freeglut\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\SDL2-2.0.20\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDL2-2.0.20\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\SDL2-2.0.20\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDL2-2.0.20\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -117,10 +94,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\JeuDechec\Jeu-D-Echec\chess\chess\freeglut\include\GL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\JeuDechec\Jeu-D-Echec\chess\chess\freeglut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -131,12 +112,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\JeuDechec\Jeu-D-Echec\chess\chess\freeglut\include\GL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\JeuDechec\Jeu-D-Echec\chess\chess\freeglut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -145,14 +130,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
-      <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\SDL2-2.0.20\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -163,18 +144,38 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
-      <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\SDL2-2.0.20\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Model.h" />
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Gameplay.h" />
+    <ClInclude Include="GameStatus.h" />
+    <ClInclude Include="Move.h" />
+    <ClInclude Include="MoveType.h" />
+    <ClInclude Include="Piece.h" />
+    <ClInclude Include="PieceColor.h" />
+    <ClInclude Include="PieceType.h" />
+    <ClInclude Include="Square.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\Model.cpp" />
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Gameplay.cpp" />
+    <ClCompile Include="GameStatus.cpp" />
+    <ClCompile Include="Move.cpp" />
+    <ClCompile Include="Piece.cpp" />
+    <ClCompile Include="Square.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,0 +1,42 @@
+﻿  main.cpp
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(44,37): warning C4305: 'initialisation' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(54,46): warning C4305: 'initialisation' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(55,45): warning C4305: 'initialisation' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(149,13): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(149,36): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(185,39): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(186,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(188,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(190,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(192,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(196,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(198,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(200,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(202,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(206,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(208,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(210,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(212,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(216,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(218,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(220,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(222,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(227,37): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(228,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(234,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(238,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(244,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(248,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(254,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(258,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(264,42): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(278,20): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(279,20): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(336,21): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(336,38): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(338,45): warning C4305: 'argument' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(545,19): warning C4244: 'argument' : conversion de 'int' en 'GLfloat', perte possible de données
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(595,37): warning C4244: '=' : conversion de 'GLdouble' en 'GLfloat', perte possible de données
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(603,27): warning C4305: '+=' : troncation de 'double' à 'GLfloat'
+C:\JeuDechec\Jeu-D-Echec\chess\main.cpp(606,27): warning C4305: '-=' : troncation de 'double' à 'GLfloat'
+  chess.vcxproj -> C:\JeuDechec\Jeu-D-Echec\chess\Debug\chess.exe

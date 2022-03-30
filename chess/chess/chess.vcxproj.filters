@@ -13,78 +13,69 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\Pieces">
-      <UniqueIdentifier>{da546acc-17d2-476d-a557-7a04d5bc56ae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Pieces">
-      <UniqueIdentifier>{d568aa34-23c2-4117-bea9-546875d8daf3}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Cavalier.cpp">
-      <Filter>Fichiers sources\Pieces</Filter>
-    </ClCompile>
-    <ClCompile Include="Echiquier.cxx">
-      <Filter>Fichiers sources\Pieces</Filter>
-    </ClCompile>
-    <ClCompile Include="Fou.cpp">
-      <Filter>Fichiers sources\Pieces</Filter>
-    </ClCompile>
-    <ClCompile Include="Joueur.cxx">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Partie.cxx">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Piece.cxx">
-      <Filter>Fichiers sources\Pieces</Filter>
-    </ClCompile>
-    <ClCompile Include="Pion.cpp">
-      <Filter>Fichiers sources\Pieces</Filter>
-    </ClCompile>
-    <ClCompile Include="Reine.cpp">
-      <Filter>Fichiers sources\Pieces</Filter>
-    </ClCompile>
-    <ClCompile Include="Roi.cpp">
-      <Filter>Fichiers sources\Pieces</Filter>
-    </ClCompile>
-    <ClCompile Include="Tour.cpp">
-      <Filter>Fichiers sources\Pieces</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Cavalier.h">
-      <Filter>Fichiers d%27en-tête\Pieces</Filter>
-    </ClInclude>
-    <ClInclude Include="Echiquier.h">
-      <Filter>Fichiers d%27en-tête\Pieces</Filter>
-    </ClInclude>
-    <ClInclude Include="Fou.h">
-      <Filter>Fichiers d%27en-tête\Pieces</Filter>
-    </ClInclude>
-    <ClInclude Include="Joueur.h">
+    <ClInclude Include="..\Model.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Partie.h">
+    <ClInclude Include="Gameplay.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Pion.h">
-      <Filter>Fichiers d%27en-tête\Pieces</Filter>
+    <ClInclude Include="GameStatus.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Reine.h">
-      <Filter>Fichiers d%27en-tête\Pieces</Filter>
+    <ClInclude Include="Move.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Tour.h">
-      <Filter>Fichiers d%27en-tête\Pieces</Filter>
-    </ClInclude>
-    <ClInclude Include="Roi.h">
-      <Filter>Fichiers d%27en-tête\Pieces</Filter>
+    <ClInclude Include="MoveType.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Piece.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="PieceColor.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="PieceType.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Square.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Model.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Square.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameplay.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStatus.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Move.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Piece.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

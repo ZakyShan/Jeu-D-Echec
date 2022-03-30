@@ -1,6 +1,0 @@
-﻿  Partie.cxx
-C:\JeuDechec\Jeu-D-Echec\chess\chess\Partie.cxx(182,10): warning C4101: 'typePiece' : variable locale non référencée
-  Piece.cxx
-  Tour.cpp
-  Génération de code en cours...
-  chess.vcxproj -> C:\JeuDechec\Jeu-D-Echec\chess\x64\Debug\chess.exe
