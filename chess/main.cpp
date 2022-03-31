@@ -1,5 +1,7 @@
 
 #include <iostream>
+#include <windows.h>
+
 using namespace std;
 
 #ifdef __APPLE__
@@ -12,16 +14,18 @@ using namespace std;
 #include "Model.h"
 //Chess Game
 #include "Chess/Game.h"
-//Window size and position
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 600
-#define WINDOW_POS_X 50
-#define WINDOW_POS_Y 50
+//tailles des fenettres
+#define WINDOW_WIDTH GetSystemMetrics(SM_CXSCREEN)
+#define WINDOW_HEIGHT GetSystemMetrics(SM_CYSCREEN)
+#define WINDOW_POS_X 0
+#define WINDOW_POS_Y 0
+
 
 #define BUTTON_X -100
 #define BUTTON_Y -100
 #define BUTTON_WIDTH 200
 #define BUTTON_HEIGHT 75
+
 
 /** Prototype **/
 void keyFunction(unsigned char key, int x, int y);
@@ -46,6 +50,7 @@ GLfloat     fovy = 50.0, zNear = 0.1, zFar = 20.0;
 /**
     Variables for light
 */
+
 GLfloat     position[] = {0.0f, 0.0f, 100.0f, 0.0f};
 GLfloat     diffusion[] = {1.0f, 1.0f, 1.0f, 1.0f};
 GLfloat     normal_board[] = {0.0f, 0.0f, 1.0f};
@@ -62,20 +67,33 @@ GLfloat     screen_ratio, zoomOut = 2;
 /**
     Model Loading
 */
+
+
 Model   Pawn("model/Pawn.obj");
 Model   Rook("model/Rook.obj");
 Model   Knight("model/Knight.obj");
 Model   Bishop("model/Bishop.obj");
 Model   King("model/King.obj");
+
 Model   Queen("model/Queen.obj");
 /*
+
 Model   Pawn("../Debug/model/Pawn.obj");
 Model   Rook("../Debug/model/Rook.obj");
 Model   Knight("../Debug/model/Knight.obj");
 Model   Bishop("../Debug/model/Bishop.obj");
 Model   King("../Debug/model/King.obj");
 Model   Queen("../Debug/model/Queen.obj");
+
+
+Model   Pawn("../Debug/Obj2/Pawn.obj");
+Model   Rook("../Debug/Obj2/Rook.obj");
+Model   Knight("../Debug/Obj2/Knight.obj");
+Model   Bishop("../Debug/Obj2/Bishop.obj");
+Model   King("../Debug/Obj2/King.obj");
+Model   Queen("../Debug/Obj2/Queen.obj");
 */
+
 //C:\JeuDechec\Jeu - D - Echec\chess\Debug\model
 /**
     Pre-start
@@ -127,15 +145,16 @@ void showWord( int x, int y, string word)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho(-WINDOW_WIDTH/2, WINDOW_WIDTH/2, -WINDOW_HEIGHT/2, WINDOW_HEIGHT/2, 0, 1);
-
+    //glutFullScreen();
+    glutShowWindow();
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     int l,i;
 
-    l=word.length(); //nb caractères
-    glRasterPos2i(x, y); // text de début 
+    l=word.length(); //nbs characters
+    glRasterPos2i(x, y); // start text 
+    glColor3f(0.545, 0.271, 0.075);
 
-    glColor3f(255,255, 255);
     for( i=0; i < l; i++) // loop until i is greater then l
     {
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, word[i]); // Print a character on the screen
@@ -368,26 +387,39 @@ void drawChessPieces()
                     if(selected && row == selectedRow && col == selectedCol) z = 1.0;
                     else z = 0.5;
                     glTranslatef((row - 5) * 1.0f + 0.5f, (col - 5) * 1.0f + 0.5f, z);
-                    glScalef(0.01f, 0.01f, 0.01f);
+                    //Tailles des pieces  
+                    glScalef(0.05f, 0.05f, 0.05f);
                     switch(chess->getPieceColor(row, col))
                     {
+                        //Emplacement des pieces blanches
                         case PieceColor::WHITE:
-                            glRotatef(90, 0.0f, 0.0f, 1.0f);
+                            glRotatef(90, 90, 0.0f, 1.0f);
                             glColor3f(0.9f, 0.9f, 0.9f);
                             break;
+                        
+                        //Emplacement des pieces noires
                         case PieceColor::BLACK:
-                            glRotatef(-90, 0.0f, 0.0f, 1.0f);
+                            glRotatef(-90, -90, 0.0f, 1.0f);
                             glColor3f(0.1f, 0.1f, 0.1f);
                             break;
                     }
                     switch(chess->getPiece(row, col)->getType())
                     {
+                        
                         case PieceType::PAWN: Pawn.Draw(); break;
                         case PieceType::ROOK: Rook.Draw(); break;
                         case PieceType::KNIGHT: Knight.Draw(); break;
                         case PieceType::BISHOP: Bishop.Draw(); break;
                         case PieceType::QUEEN: Queen.Draw(); break;
                         case PieceType::KING: King.Draw(); break;
+                      /*
+                    case PieceType::PAWN: Pawn.Draw2(); break;
+                    case PieceType::ROOK: Rook.Draw2(); break;
+                    case PieceType::KNIGHT: Knight.Draw2(); break;
+                    case PieceType::BISHOP: Bishop.Draw2(); break;
+                    case PieceType::QUEEN: Queen.Draw2(); break;
+                    case PieceType::KING: King.Draw2(); break;
+                     */
                     }
                 glPopMatrix();
             }
@@ -396,7 +428,8 @@ void drawChessPieces()
     glColor3f(0, 0, 0);
 }
 
-void key_W_pressed(PieceColor color)
+//Selection de la piece 
+void key_Z_pressed(PieceColor color)
 {
     switch(color)
     {
@@ -441,7 +474,7 @@ void key_S_pressed(PieceColor color)
     }
 }
 
-void key_A_pressed(PieceColor color)
+void key_Q_pressed(PieceColor color)
 {
     switch(color)
     {
@@ -471,16 +504,17 @@ void updateTurn(PieceColor color)
     }
 }
 
+//Rotation du changement
 void doRotationBoard(PieceColor color)
 {
     switch(color)
     {
         case PieceColor::WHITE:
-            if(rotation < 180) rotation += 4;
+            if(rotation < 180) rotation += 180;
             else board_rotating = false;
             break;
         case PieceColor::BLACK:
-            if(rotation < 360) rotation += 4;
+            if(rotation < 360) rotation += 180;
             else
             {
                 rotation = 0;
@@ -515,20 +549,20 @@ void displayFunction()
     if(inGame)
     {
         /**
-            Changing view perspective
+            change la vue
         */
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         gluPerspective(fovy, screen_ratio, zNear, zoomOut * zFar);
         /**
-            Drawing model mode
+            dessine la matrice
         */
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
         gluLookAt(zoomOut * eyeX, zoomOut * eyeY, zoomOut * eyeZ, centerX, centerY, centerZ, upX, upY, upZ);
 
         /**
-            Draw code here
+            dessine le plateau
         */
         if(board_rotating) doRotationBoard(chess->getTurnColor());
         GLfloat ambient_model[] = { 0.5, 0.5, 0.5, 1.0 };//bordure du plat
@@ -543,7 +577,7 @@ void displayFunction()
         glLightfv(GL_LIGHT0, GL_POSITION, position);
 
         glRotatef(rotation, 0, 0, 1);
-
+        //dessine les elements
         drawChessBoard();
 
         drawBoardSquares();
@@ -563,17 +597,17 @@ void displayFunction()
         {
             if(check)
             {
-                string s = chess->getTurnColor() == PieceColor::BLACK?"BLACK PIECE" : "WHITE PIECE";
+                string s = chess->getTurnColor() == PieceColor::BLACK?"Piece noire" : "Piece blanche";
                 showWord(-150, WINDOW_HEIGHT/2-24, s+" CHECKED!");
             }
             if(checkMate)
             {
-                string s = chess->getTurnColor() == PieceColor::BLACK?"WHITE PLAYER" : "BLACK PLAYER";
+                string s = chess->getTurnColor() == PieceColor::BLACK?"Joueur blanc" : "Joueur noir";
                 showWord(-100, WINDOW_HEIGHT/2-24, "CHECK MATE!");
-                showWord(-140, WINDOW_HEIGHT/2-50, s+" WIN!");
+                showWord(-140, WINDOW_HEIGHT/2-50, s+" Gagne!");
                 showWord(-150, -WINDOW_HEIGHT/2+50, "Tu veux jouer de nouveau?");
                 showWord(-120, -WINDOW_HEIGHT/2+25, "Oui (O)  ou  Non (X)");
-                
+                glColor3f(0.545, 0.271, 0.075);
             }
         }
        
@@ -621,11 +655,11 @@ void keyFunction(unsigned char key, int x, int y)
     {
         case 'z':
         case 'Z':
-            if(!needPromote && !checkMate && !verify && inGame && !board_rotating) key_W_pressed(chess->getTurnColor());
+            if(!needPromote && !checkMate && !verify && inGame && !board_rotating) key_Z_pressed(chess->getTurnColor());
             break;
         case 'q':
         case 'Q':
-            if(!needPromote && !checkMate && !verify && inGame && !board_rotating) key_A_pressed(chess->getTurnColor());
+            if(!needPromote && !checkMate && !verify && inGame && !board_rotating) key_Q_pressed(chess->getTurnColor());
             break;
         case 's':
         case 'S':
@@ -716,7 +750,8 @@ void keyFunction(unsigned char key, int x, int y)
 
 void initialize()
 {
-    glClearColor(0, 0, 0, 1.0f);// 0.2f, 0.6f, 0.5f, 1.0f couleur de fond
+    // 0.2f, 0.6f, 0.5f, 1.0f couleur de fond
+    glClearColor(0.2f, 0.2f, 0.2f, 0.1f);
     glClearDepth(1.0f);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_SMOOTH);
@@ -746,6 +781,7 @@ void newGame()
     updateTurn(chess->getTurnColor());
 }
 
+
 int main(int argc, char *argv[])
 {
 
@@ -761,5 +797,5 @@ int main(int argc, char *argv[])
     glutKeyboardFunc(keyFunction);
     glutSpecialFunc(specialFunction);
     glutMainLoop();
-	return 0;
+    return 0;
 }

@@ -84,6 +84,23 @@ void Model::Draw()
         glEnd();
     glPopMatrix();
 }
+/*
+void Model::Draw2()
+{
+    int index;
+    glPushMatrix();
+    glBegin(GL_TRIANGLES);
+    for (int i = 0; i < sz; i++)
+    {
+        index = 8 * i;
+        glNormal3f(position_texture_normal[index + 5], position_texture_normal[index + 6], position_texture_normal[index + 7]);
+        glTexCoord2f(position_texture_normal[index + 3], position_texture_normal[index + 4]);
+        glVertex3f(position_texture_normal[index], position_texture_normal[index + 1], position_texture_normal[index + 2]);
+    }
+    glEnd();
+    glPopMatrix();
+}
+*/
 
 Model::~Model()
 {
