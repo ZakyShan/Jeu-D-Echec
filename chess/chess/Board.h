@@ -2,16 +2,19 @@
 #define BOARD_H
 
 #include "Square.h"
-
+#define MINC 1;
+#define MINR 1;
+#define MAXC 8;
+#define MAXR 8;
 class Board
 {
 	private:
-		Square squares[10][10];
+		Square m_squares[10][10];
 	public:
-		const int MIN_COL_INDEX = 1;
-		const int MIN_ROW_INDEX = 1;
-		const int MAX_COL_INDEX = 8;
-		const int MAX_ROW_INDEX = 8;
+		const int MIN_COL_INDEX = MINC;
+		const int MIN_ROW_INDEX = MINR;
+		const int MAX_COL_INDEX = MAXC;
+		const int MAX_ROW_INDEX = MAXR;
 		Board();
 		//~Board();
 		Board(const Board& board);

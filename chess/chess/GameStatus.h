@@ -6,17 +6,7 @@
 
 class GameStatus
 {
-	private:
-		bool whiteKingMove;
-		bool blackKingMove;
-		
-		Piece* whitePieceEnPassant;
-		Piece* blackPieceEnPassant;
-		
-		bool whiteFirstColRookMove;
-		bool whiteLastColRookMove;
-		bool blackFirstColRookMove;
-		bool blackLastColRookMove;
+	
 	
 	public:
 		GameStatus();
@@ -31,6 +21,18 @@ class GameStatus
 		Piece* pieceEnPassantable(PieceColor color);
 		bool isFirstColRookMove(PieceColor color);
 		bool isLastColRookMove(PieceColor color);
+
+	private:
+		bool m_whiteKingMove;
+		bool m_blackKingMove;
+
+		Piece* m_whitePieceEnPassant;
+		Piece* m_blackPieceEnPassant;
+
+		bool m_whiteFirstColRookMove;
+		bool m_whiteLastColRookMove;
+		bool m_blackFirstColRookMove;
+		bool m_blackLastColRookMove;
 };
 
 #endif

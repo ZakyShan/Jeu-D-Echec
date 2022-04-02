@@ -8,16 +8,7 @@
 #include "MoveType.h"
 
 class Move
-{
-	private:
-		int fromRow;
-		int fromCol;
-		Piece* movePiece;
-		int toRow;
-		int toCol;
-		Piece* capturedPiece;
-		MoveType type;
-		
+{	
 	public:
 		Move(MoveType mType, int fRow, int fCol, int tRow, int tCol, Piece* moved, Piece* captured=NULL);
 		Move(const Move& move);
@@ -26,6 +17,15 @@ class Move
 		Piece* getMovedPiece();
 		Piece* getCapturedPiece();
 		MoveType getType();
+
+	private:
+		int m_fromRow;
+		int m_fromCol;
+		Piece* m_movePiece;
+		int m_toRow;
+		int m_toCol;
+		Piece* m_capturedPiece;
+		MoveType m_type;
 };
 
 #endif

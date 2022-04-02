@@ -4,34 +4,34 @@
 
 Square::Square()
 {
-	occupyingPiece = NULL;
+	m_occupyingPiece = NULL;
 }
 
 Square::Square(const Square& square)
 {
-	this->occupyingPiece = square.occupyingPiece;
+	this->m_occupyingPiece = square.m_occupyingPiece;
 }
 
 bool Square::occupiedState()
 {
-	return occupyingPiece==NULL? false : true;
+	return m_occupyingPiece==NULL? false : true;
 }
 
 bool Square::occupySquare(Piece* piece)
 {
 	if(occupiedState()) return false;
-	else occupyingPiece = piece;
+	else m_occupyingPiece = piece;
 	return true;
 }
 
 Piece* Square::removeOccupyingPiece()
 {
-	Piece* removed = occupyingPiece;
-	occupyingPiece = NULL;
+	Piece* removed = m_occupyingPiece;
+	m_occupyingPiece = NULL;
 	return removed;
 }
 
 Piece* Square::getOccupyingPiece()
 {
-	return occupyingPiece;
+	return m_occupyingPiece;
 }

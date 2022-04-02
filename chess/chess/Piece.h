@@ -6,14 +6,16 @@
 
 class Piece
 {
-	private:
-		PieceType type;
-		PieceColor color;
+	
 	public:
 		Piece(PieceType pType, PieceColor pColor);
 		Piece(const Piece &piece);
 		PieceType getType();
 		PieceColor getColor();
+
+	private:
+		PieceType m_type;
+		PieceColor m_color;
 };
 
 #endif

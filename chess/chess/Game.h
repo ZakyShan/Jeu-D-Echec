@@ -11,12 +11,7 @@
 
 class Game
 {
-	private:
-		std::stack<Move> log;
-		Gameplay* gameplay;
-		Board* board;
-		GameStatus* status;
-		int turn;
+	
 	public:
 		Game();
 		void setInitialPieces(PieceColor color);
@@ -34,6 +29,12 @@ class Game
 		void nextTurn();
 		PieceColor getTurnColor();
 		bool promote(int row, int col, PieceType type);
+	private:
+		std::stack<Move> m_log;
+		Gameplay* m_gameplay;
+		Board* m_board;
+		GameStatus* m_status;
+		int m_turn;
 };
 
 #endif

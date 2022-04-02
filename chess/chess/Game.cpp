@@ -2,57 +2,57 @@
 
 Game::Game()
 {
-	gameplay = new Gameplay();
-	board = new Board();
-	status = new GameStatus();
+	m_gameplay = new Gameplay();
+	m_board = new Board();
+	m_status = new GameStatus();
 	setInitialPieces(PieceColor::WHITE);
 	setInitialPieces(PieceColor::BLACK);
-	turn = 1;
+	m_turn = 1;
 }
 
 void Game::setInitialPieces(PieceColor color)
 {
-	int firstRow = (color==PieceColor::WHITE)? board->MIN_ROW_INDEX : board->MAX_ROW_INDEX;
-	int secondRow = (color==PieceColor::WHITE)? board->MIN_ROW_INDEX+1 : board->MAX_ROW_INDEX-1;
-	int firstCol = board->MIN_COL_INDEX;
+	int firstRow = (color==PieceColor::WHITE)? m_board->MIN_ROW_INDEX : m_board->MAX_ROW_INDEX;
+	int secondRow = (color==PieceColor::WHITE)? m_board->MIN_ROW_INDEX+1 : m_board->MAX_ROW_INDEX-1;
+	int firstCol = m_board->MIN_COL_INDEX;
 	/* PAWN */
-	for(int col = firstCol; col<=board->MAX_COL_INDEX; col++)
+	for(int col = firstCol; col<= m_board->MAX_COL_INDEX; col++)
 	{
-		board->getSquare(secondRow, col)->occupySquare(new Piece(PieceType::PAWN, color));
+		m_board->getSquare(secondRow, col)->occupySquare(new Piece(PieceType::PAWN, color));
 	}
 	/* ROOK */
-	board->getSquare(firstRow, firstCol)->occupySquare(new Piece(PieceType::ROOK, color));
-	board->getSquare(firstRow, firstCol+7)->occupySquare(new Piece(PieceType::ROOK, color));
+	m_board->getSquare(firstRow, firstCol)->occupySquare(new Piece(PieceType::ROOK, color));
+	m_board->getSquare(firstRow, firstCol+7)->occupySquare(new Piece(PieceType::ROOK, color));
 	/* KNIGHT */
-	board->getSquare(firstRow, firstCol+1)->occupySquare(new Piece(PieceType::KNIGHT, color));
-	board->getSquare(firstRow, firstCol+6)->occupySquare(new Piece(PieceType::KNIGHT, color));
+	m_board->getSquare(firstRow, firstCol+1)->occupySquare(new Piece(PieceType::KNIGHT, color));
+	m_board->getSquare(firstRow, firstCol+6)->occupySquare(new Piece(PieceType::KNIGHT, color));
 	/* BISHOP */
-	board->getSquare(firstRow, firstCol+2)->occupySquare(new Piece(PieceType::BISHOP, color));
-	board->getSquare(firstRow, firstCol+5)->occupySquare(new Piece(PieceType::BISHOP, color));
+	m_board->getSquare(firstRow, firstCol+2)->occupySquare(new Piece(PieceType::BISHOP, color));
+	m_board->getSquare(firstRow, firstCol+5)->occupySquare(new Piece(PieceType::BISHOP, color));
 	/* QUEEN */
-	board->getSquare(firstRow, firstCol+3)->occupySquare(new Piece(PieceType::QUEEN, color));
+	m_board->getSquare(firstRow, firstCol+3)->occupySquare(new Piece(PieceType::QUEEN, color));
 	/* KING */
-	board->getSquare(firstRow, firstCol+4)->occupySquare(new Piece(PieceType::KING, color));
+	m_board->getSquare(firstRow, firstCol+4)->occupySquare(new Piece(PieceType::KING, color));
 }
 
 std::stack<Move> Game::getAllLog()
 {
-	return log;
+	return m_log;
 }
 
 Board* Game::getBoard()
 {
-	return board;
+	return m_board;
 }
 
 GameStatus* Game::getGameStatus()
 {
-	return status;
+	return m_status;
 }
 
 std::vector<Move> Game::getValidMoves(int fromRow, int fromCol)
 {
-	return gameplay->getValidMoves(status, board, board->getSquare(fromRow, fromCol)->getOccupyingPiece(), fromRow, fromCol);
+	return m_gameplay->getValidMoves(m_status, m_board, m_board->getSquare(fromRow, fromCol)->getOccupyingPiece(), fromRow, fromCol);
 }
 
 bool Game::move(int fromRow, int fromCol, int toRow, int toCol)
@@ -61,9 +61,9 @@ bool Game::move(int fromRow, int fromCol, int toRow, int toCol)
 	int sz = valid.size();
 	for(int index=0; index<sz; index++)
 		if(valid[index].getDestinationPosition().first == toRow && valid[index].getDestinationPosition().second == toCol)
-			if(gameplay->move(status, board, valid[index]))
+			if(m_gameplay->move(m_status, m_board, valid[index]))
 			{
-				log.push(valid[index]);
+				m_log.push(valid[index]);
 				return true;
 			}
 
@@ -72,46 +72,46 @@ bool Game::move(int fromRow, int fromCol, int toRow, int toCol)
 
 PieceColor Game::getPieceColor(int fromRow, int fromCol)
 {
-	return board->getSquare(fromRow, fromCol)->getOccupyingPiece()->getColor();
+	return m_board->getSquare(fromRow, fromCol)->getOccupyingPiece()->getColor();
 }
 
 Piece* Game::getPiece(int fromRow, int fromCol)
 {
-    return board->getSquare(fromRow, fromCol)->getOccupyingPiece();
+    return m_board->getSquare(fromRow, fromCol)->getOccupyingPiece();
 }
 
 bool Game::isSquareOccupied(int fromRow, int fromCol)
 {
-    return board->getSquare(fromRow, fromCol)->occupiedState();
+    return m_board->getSquare(fromRow, fromCol)->occupiedState();
 }
 
 bool Game::inCheckState()
 {
-	return gameplay->isCheckState(status, board, getTurnColor());
+	return m_gameplay->isCheckState(m_status, m_board, getTurnColor());
 }
 
 bool Game::inCheckMateState()
 {
-	return gameplay->isCheckMateState(status, board, getTurnColor());
+	return m_gameplay->isCheckMateState(m_status, m_board, getTurnColor());
 }
 
 int Game::getTurn()
 {
-	return turn;
+	return m_turn;
 }
 
 void Game::nextTurn()
 {
-	turn++;
-	status->setPieceEnPassantable(getTurnColor(), NULL);
+	m_turn++;
+	m_status->setPieceEnPassantable(getTurnColor(), NULL);
 }
 
 PieceColor Game::getTurnColor()
 {
-	return turn & 1? PieceColor::WHITE : PieceColor::BLACK;
+	return m_turn & 1? PieceColor::WHITE : PieceColor::BLACK;
 }
 
 bool Game::promote(int row, int col, PieceType type)
 {
-	return gameplay->pawnPromotion(board, row, col, type);
+	return m_gameplay->pawnPromotion(m_board, row, col, type);
 }

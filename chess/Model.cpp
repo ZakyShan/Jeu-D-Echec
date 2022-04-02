@@ -74,12 +74,12 @@ void Model::Draw()
     int index;
     glPushMatrix();
         glBegin(GL_TRIANGLES);
-            for(int i=0; i<sz; i++)
+            for(int i=0; i<m_sz; i++)
             {
                 index = 8 * i;
-                glNormal3f(position_texture_normal[index+5], position_texture_normal[index+6], position_texture_normal[index+7]);
-                glTexCoord2f(position_texture_normal[index+3], position_texture_normal[index+4]);
-                glVertex3f(position_texture_normal[index], position_texture_normal[index+1], position_texture_normal[index+2]);
+                glNormal3f(m_position_texture_normal[index+5], m_position_texture_normal[index+6], m_position_texture_normal[index+7]);
+                glTexCoord2f(m_position_texture_normal[index+3], m_position_texture_normal[index+4]);
+                glVertex3f(m_position_texture_normal[index], m_position_texture_normal[index+1], m_position_texture_normal[index+2]);
             }
         glEnd();
     glPopMatrix();
@@ -88,7 +88,7 @@ void Model::Draw()
 
 Model::~Model()
 {
-    position_texture_normal.clear();
+    m_position_texture_normal.clear();
 }
 
 std::vector<std::string> Model::splitString(std::string str, char delimiter)

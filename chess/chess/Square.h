@@ -5,8 +5,7 @@
 
 class Square
 {
-	private:
-		Piece* occupyingPiece;
+	
 	public:
 		Square();
 		Square(const Square& square);
@@ -14,6 +13,8 @@ class Square
 		bool occupySquare(Piece* piece);
 		Piece* removeOccupyingPiece();
 		Piece* getOccupyingPiece();
+	private:
+		Piece* m_occupyingPiece;
 };
 
 #endif
