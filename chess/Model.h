@@ -18,7 +18,7 @@ public:
     Model(std::string objFilePath);
     ~Model();
     void Draw();
-    void Draw2();
+   
 };
 
 #endif
