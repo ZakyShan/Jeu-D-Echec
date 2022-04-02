@@ -52,21 +52,21 @@ Model::Model(std::string objFilePath)
                 {
                     inSplit = splitString(split[i], '/');
                     int index = 3 * (getInt(inSplit[0])-1);
-                    position_texture_normal.push_back(position_vector[index]);
-                    position_texture_normal.push_back(position_vector[index+1]);
-                    position_texture_normal.push_back(position_vector[index+2]);
+                    m_position_texture_normal.push_back(position_vector[index]);
+                    m_position_texture_normal.push_back(position_vector[index+1]);
+                    m_position_texture_normal.push_back(position_vector[index+2]);
                     index = 2 * (getInt(inSplit[1])-1);
-                    position_texture_normal.push_back(texture_coord[index]);
-                    position_texture_normal.push_back(texture_coord[index+1]);
+                    m_position_texture_normal.push_back(texture_coord[index]);
+                    m_position_texture_normal.push_back(texture_coord[index+1]);
                     index = 3 * (getInt(inSplit[2])-1);
-                    position_texture_normal.push_back(normal_vector[index]);
-                    position_texture_normal.push_back(normal_vector[index+1]);
-                    position_texture_normal.push_back(normal_vector[index+2]);
+                    m_position_texture_normal.push_back(normal_vector[index]);
+                    m_position_texture_normal.push_back(normal_vector[index+1]);
+                    m_position_texture_normal.push_back(normal_vector[index+2]);
                 }
             }
 		}
 	}
-    sz = position_texture_normal.size() / 8;
+    m_sz = m_position_texture_normal.size() / 8;
 }
 
 void Model::Draw()
