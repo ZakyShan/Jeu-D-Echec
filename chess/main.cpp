@@ -29,7 +29,7 @@ using namespace std;
 
 //  Prototype
 void keyFunction(unsigned char key, int x, int y);
-void specialFunction(int key, int x, int y);
+void zoom(int key, int x, int y);
 
 
 
@@ -60,7 +60,7 @@ GLfloat     screen_ratio, zoomOut = 2;
 
 
 //  Modèles des pieces 3D
-/*
+
 
 Model   Pawn("model/Pawn.obj");
 Model   Rook("model/Rook.obj");
@@ -69,14 +69,14 @@ Model   Bishop("model/Bishop.obj");
 Model   King("model/King.obj");
 Model   Queen("model/Queen.obj");
 
-
+/*
 Model   Pawn("../Debug/model/Pawn.obj");
 Model   Rook("../Debug/model/Rook.obj");
 Model   Knight("../Debug/model/Knight.obj");
 Model   Bishop("../Debug/model/Bishop.obj");
 Model   King("../Debug/model/King.obj");
 Model   Queen("../Debug/model/Queen.obj");
-*/
+
 
 Model   Pawn("../Debug/Obj2/Pawn.obj");
 Model   Rook("../Debug/Obj2/Rook.obj");
@@ -84,7 +84,7 @@ Model   Knight("../Debug/Obj2/Knight.obj");
 Model   Bishop("../Debug/Obj2/Bishop.obj");
 Model   King("../Debug/Obj2/King.obj");
 Model   Queen("../Debug/Obj2/Queen.obj");
-
+*/
 
 //C:\JeuDechec\Jeu - D - Echec\chess\Debug\model
 
@@ -520,12 +520,41 @@ void endOfTurn()
 	updateTurn(chess->getTurnColor());
 }
 
+void showWordRGB(int x, int y, string word, int r, int g, int b)
+{
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(-WINDOW_WIDTH / 2, WINDOW_WIDTH / 2, -WINDOW_HEIGHT / 2, WINDOW_HEIGHT / 2, 0, 1);
+    //glutFullScreen();
+    glutShowWindow();
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    int l, i;
+
+    l = word.length(); //nb de char dans le String  
+    glRasterPos2i(x, y); //position dans la fenêtre 
+    glColor3f(r, g, b);
+
+    for (i = 0; i < l; i++)
+    {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, word[i]); //affichage 1 par 1
+    }
+}
+
 void displayFunction()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     if(inGame)
     {
+        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+120, "Controlle:", 0, 0, 0);
+        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+100, "N pour jouer une nouvelle partie", 0, 0, 0);
+        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+80, "Q pour se deplacer gauche", 0, 0, 0);
+        showWordRGB(-WINDOW_WIDTH / 2, (WINDOW_HEIGHT / 3) + 60, "S pour se deplacer en arrière", 0, 0, 0);
+        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+40, "D pour se deplacer à droite", 0, 0, 0);
+        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+20, "Z pour se deplacer en avant", 0, 0, 0);
+        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3), "'Espace' pour selectionner une piece", 0, 0, 0);
+        glColor3f(0, 0, 0);
         //  change la vue
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
@@ -602,7 +631,7 @@ void reshapeFunction(int width, int height)
 }
 
 //  Commande avec les touches directionnel + scroll
-void specialFunction(int key, int x, int y)
+void zoom(int key, int x, int y)
 {
     switch(key)
     {
@@ -772,7 +801,7 @@ int main(int argc, char *argv[])
     glutDisplayFunc(displayFunction);
     glutReshapeFunc(reshapeFunction);
     glutKeyboardFunc(keyFunction);
-    glutSpecialFunc(specialFunction);
+    glutSpecialFunc(zoom);
     glutMainLoop();
     return 0;
 }
