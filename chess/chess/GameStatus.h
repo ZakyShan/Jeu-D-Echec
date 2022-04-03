@@ -18,7 +18,7 @@ class GameStatus
 		void setLastColRookMove(PieceColor color);
 		
 		bool isKingMove(PieceColor color);
-		Piece* pieceEnPassantable(PieceColor color);
+		Piece* pieceEnPassant(PieceColor color);
 		bool isFirstColRookMove(PieceColor color);
 		bool isLastColRookMove(PieceColor color);
 

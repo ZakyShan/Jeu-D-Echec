@@ -3,6 +3,17 @@
 #include <iostream>
 
 #include "Gameplay.h"
+void movePawn(Piece* act, Board* board, GameStatus* status, int fromCol, int fromRow, int toRow) {
+	if (act->getType() == PieceType::PAWN && std::abs(toRow - fromRow) == 2)
+		status->setPieceEnPassantable(act->getColor(), act);
+	else if (act->getType() == PieceType::KING)
+		status->setKingMove(act->getColor());
+	else if (act->getType() == PieceType::ROOK)
+	{
+		if (fromCol == board->MIN_COL_INDEX) status->setFirstColRookMove(act->getColor());
+		else if (fromCol == board->MAX_COL_INDEX) status->setLastColRookMove(act->getColor());
+	}
+}
 
 bool Gameplay::move(GameStatus* status, Board* board, Move move)
 {
@@ -15,15 +26,7 @@ bool Gameplay::move(GameStatus* status, Board* board, Move move)
 	{
 		case MoveType::NORMAL:
 		{
-			if(actPiece->getType()==PieceType::PAWN && std::abs(toRow-fromRow)==2)
-				status->setPieceEnPassantable(actPiece->getColor(), actPiece);
-			else if(actPiece->getType()==PieceType::KING)
-				status->setKingMove(actPiece->getColor());
-			else if(actPiece->getType()==PieceType::ROOK)
-			{
-				if(fromCol == board->MIN_COL_INDEX) status->setFirstColRookMove(actPiece->getColor());
-				else if(fromCol == board->MAX_COL_INDEX) status->setLastColRookMove(actPiece->getColor());
-			}
+			movePawn(actPiece, board, status, fromCol, fromRow, toRow);
 			return board->getSquare(toRow, toCol)->occupySquare(board->getSquare(fromRow, fromCol)->removeOccupyingPiece());
 		}
 		case MoveType::CAPTURE:
@@ -131,7 +134,7 @@ std::vector<Move> Gameplay::getPossibleMoves(GameStatus* status, Board* board, P
 						if(board->getSquare(fromRow, col)->occupiedState())
 						{
 							Piece* capPossibility = board->getSquare(fromRow, col)->getOccupyingPiece();
-							if(capPossibility->getType() == PieceType::PAWN && capPossibility->getColor() != piece->getColor() && status->pieceEnPassantable(capPossibility->getColor()) == capPossibility)
+							if(capPossibility->getType() == PieceType::PAWN && capPossibility->getColor() != piece->getColor() && status->pieceEnPassant(capPossibility->getColor()) == capPossibility)
 								possibleMove.push_back(Move(MoveType::EN_PASSANT, fromRow, fromCol, row, col, piece, capPossibility));
 						}
 					}
@@ -142,18 +145,18 @@ std::vector<Move> Gameplay::getPossibleMoves(GameStatus* status, Board* board, P
 						if(board->getSquare(fromRow, col)->occupiedState())
 						{
 							Piece* capPossibility = board->getSquare(fromRow, col)->getOccupyingPiece();
-							if(capPossibility->getType() == PieceType::PAWN && capPossibility->getColor() != piece->getColor() && status->pieceEnPassantable(capPossibility->getColor()) == capPossibility)
+							if(capPossibility->getType() == PieceType::PAWN && capPossibility->getColor() != piece->getColor() && status->pieceEnPassant(capPossibility->getColor()) == capPossibility)
 								possibleMove.push_back(Move(MoveType::EN_PASSANT, fromRow, fromCol, row, col, piece, capPossibility));
 						}
 					}
 				}
 			}
 
-			/*BLACK PIECE*/
+			/*BLACK PIECE (MEME CODE QUE LES BLANCS )*/
 			else if(piece->getColor()==PieceColor::BLACK)
 			{
 				/*
-					SINGLE MOVE
+					SIMPLE MOVE
 				*/
 				row = fromRow-1;
 				col = fromCol;
@@ -164,7 +167,7 @@ std::vector<Move> Gameplay::getPossibleMoves(GameStatus* status, Board* board, P
 				}
 
 				/*
-					DOUBLE MOVE
+					 MOVE DOUBLE
 				*/
 				if(possibleMove.size() && fromRow == board->MAX_ROW_INDEX - 1)
 				{
@@ -175,7 +178,7 @@ std::vector<Move> Gameplay::getPossibleMoves(GameStatus* status, Board* board, P
 				}
 
 				/*
-					NORMAL CAPTURE
+					 CAPTURE NORMALE
 				*/
 				row = fromRow-1;
 				col = fromCol-1;
@@ -211,7 +214,7 @@ std::vector<Move> Gameplay::getPossibleMoves(GameStatus* status, Board* board, P
 						if(board->getSquare(fromRow, col)->occupiedState())
 						{
 							Piece* capPossibility = board->getSquare(fromRow, col)->getOccupyingPiece();
-							if(capPossibility->getType() == PieceType::PAWN && capPossibility->getColor() != piece->getColor() && status->pieceEnPassantable(capPossibility->getColor()) == capPossibility)
+							if(capPossibility->getType() == PieceType::PAWN && capPossibility->getColor() != piece->getColor() && status->pieceEnPassant(capPossibility->getColor()) == capPossibility)
 								possibleMove.push_back(Move(MoveType::EN_PASSANT, fromRow, fromCol, row, col, piece, capPossibility));
 						}
 					}
@@ -222,7 +225,7 @@ std::vector<Move> Gameplay::getPossibleMoves(GameStatus* status, Board* board, P
 						if(board->getSquare(fromRow, col)->occupiedState())
 						{
 							Piece* capPossibility = board->getSquare(fromRow, col)->getOccupyingPiece();
-							if(capPossibility->getType() == PieceType::PAWN && capPossibility->getColor() != piece->getColor() && status->pieceEnPassantable(capPossibility->getColor()) == capPossibility)
+							if(capPossibility->getType() == PieceType::PAWN && capPossibility->getColor() != piece->getColor() && status->pieceEnPassant(capPossibility->getColor()) == capPossibility)
 								possibleMove.push_back(Move(MoveType::EN_PASSANT, fromRow, fromCol, row, col, piece, capPossibility));
 						}
 					}
@@ -233,9 +236,7 @@ std::vector<Move> Gameplay::getPossibleMoves(GameStatus* status, Board* board, P
 		}
 		case PieceType::ROOK:
 		{
-			/*
-				Get possible moves from its position to lower index row
-			*/
+			
 			row = fromRow-1;
 			col = fromCol;
 			while(row >= board->MIN_ROW_INDEX)
@@ -255,9 +256,7 @@ std::vector<Move> Gameplay::getPossibleMoves(GameStatus* status, Board* board, P
 				row--;
 			}
 
-			/*
-				Get possible moves from its position to upper index row
-			*/
+			
 			row = fromRow+1;
 			col = fromCol;
 			while(row <= board->MAX_ROW_INDEX)
@@ -277,9 +276,7 @@ std::vector<Move> Gameplay::getPossibleMoves(GameStatus* status, Board* board, P
 				row++;
 			}
 
-			/*
-				Get possible moves from its position to lower index column
-			*/
+		
 			row = fromRow;
 			col = fromCol-1;
 			while(col >= board->MIN_COL_INDEX)
@@ -299,9 +296,7 @@ std::vector<Move> Gameplay::getPossibleMoves(GameStatus* status, Board* board, P
 				col--;
 			}
 
-			/*
-				Get possible moves from its position to upper index column
-			*/
+			
 			row = fromRow;
 			col = fromCol+1;
 			while(col <= board->MAX_COL_INDEX)

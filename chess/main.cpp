@@ -176,7 +176,7 @@ void drawMoveToSquare()
 
 
 //  Dessine un échiquier en utilisant les points du tableau "chessBoard".
-void drawChessBoard()
+void drawChessB()
 {
     glPushMatrix();
         glNormal3fv(normal_valid_move);
@@ -520,7 +520,7 @@ void endOfTurn()
 	updateTurn(chess->getTurnColor());
 }
 
-void showWordRGB(int x, int y, string word, int r, int g, int b)
+void showWordRGB(int x, int y, string word, float r, float g, float b)
 {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -547,13 +547,13 @@ void displayFunction()
 
     if(inGame)
     {
-        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+120, "Controlle:", 0, 0, 0);
-        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+100, "N pour jouer une nouvelle partie", 0, 0, 0);
-        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+80, "Q pour se deplacer gauche", 0, 0, 0);
-        showWordRGB(-WINDOW_WIDTH / 2, (WINDOW_HEIGHT / 3) + 60, "S pour se deplacer en arrière", 0, 0, 0);
-        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+40, "D pour se deplacer à droite", 0, 0, 0);
-        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+20, "Z pour se deplacer en avant", 0, 0, 0);
-        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3), "'Espace' pour selectionner une piece", 0, 0, 0);
+        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+120, "Controlle:", 0.50f, 0.10f, 0.50f);
+        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+100, "N pour jouer une nouvelle partie", 0.50f, 0.10f, 0.50f);
+        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+80, "Q pour se deplacer gauche", 0.50f, 0.10f, 0.50f);
+        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+60, "S pour se deplacer en arrière", 0.50f, 0.10f, 0.50f);
+        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+40, "D pour se deplacer à droite", 0.50f, 0.10f, 0.50f);
+        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3)+20, "Z pour se deplacer en avant", 0.50f, 0.10f, 0.50f);
+        showWordRGB(-WINDOW_WIDTH/2, (WINDOW_HEIGHT/3), "'Espace' pour selectionner une piece", 0.50f, 0.10f, 0.50f);
         glColor3f(0, 0, 0);
         //  change la vue
         glMatrixMode(GL_PROJECTION);
@@ -579,7 +579,7 @@ void displayFunction()
 
         glRotatef(rotation, 0, 0, 1);
         //dessine les elements
-        drawChessBoard();
+        drawChessB();
 
         drawBoardSquares();
 

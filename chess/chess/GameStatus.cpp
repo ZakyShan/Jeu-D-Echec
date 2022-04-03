@@ -56,7 +56,7 @@ bool GameStatus::isKingMove(PieceColor color)
 	else if(color==PieceColor::BLACK) return m_blackKingMove;
 }
 
-Piece* GameStatus::pieceEnPassantable(PieceColor color)
+Piece* GameStatus::pieceEnPassant(PieceColor color)
 {
 	if(color==PieceColor::WHITE) return m_whitePieceEnPassant;
 	else if(color==PieceColor::BLACK) return m_blackPieceEnPassant;
