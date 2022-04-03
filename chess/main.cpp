@@ -61,7 +61,7 @@ GLfloat     screen_ratio, zoomOut = 2;
 
 //  Modèles des pieces 3D
 
-
+/*
 Model   Pawn("model/Pawn.obj");
 Model   Rook("model/Rook.obj");
 Model   Knight("model/Knight.obj");
@@ -69,14 +69,14 @@ Model   Bishop("model/Bishop.obj");
 Model   King("model/King.obj");
 Model   Queen("model/Queen.obj");
 
-/*
+
 Model   Pawn("../Debug/model/Pawn.obj");
 Model   Rook("../Debug/model/Rook.obj");
 Model   Knight("../Debug/model/Knight.obj");
 Model   Bishop("../Debug/model/Bishop.obj");
 Model   King("../Debug/model/King.obj");
 Model   Queen("../Debug/model/Queen.obj");
-
+*/
 
 Model   Pawn("../Debug/Obj2/Pawn.obj");
 Model   Rook("../Debug/Obj2/Rook.obj");
@@ -84,7 +84,7 @@ Model   Knight("../Debug/Obj2/Knight.obj");
 Model   Bishop("../Debug/Obj2/Bishop.obj");
 Model   King("../Debug/Obj2/King.obj");
 Model   Queen("../Debug/Obj2/Queen.obj");
-*/
+
 
 //C:\JeuDechec\Jeu - D - Echec\chess\Debug\model
 

@@ -4,9 +4,9 @@
 #include <stack>
 
 #include "Piece.h"
-#include "Gameplay.h"
+#include "GameP.h"
 #include "Board.h"
-#include "GameStatus.h"
+#include "GameS.h"
 #include "Move.h"
 
 class Game

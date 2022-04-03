@@ -156,8 +156,8 @@
     <ClInclude Include="..\Model.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Gameplay.h" />
-    <ClInclude Include="GameStatus.h" />
+    <ClInclude Include="GameP.h" />
+    <ClInclude Include="GameS.h" />
     <ClInclude Include="Move.h" />
     <ClInclude Include="MoveType.h" />
     <ClInclude Include="Piece.h" />
@@ -170,8 +170,8 @@
     <ClCompile Include="..\Model.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Gameplay.cpp" />
-    <ClCompile Include="GameStatus.cpp" />
+    <ClCompile Include="GameP.cpp" />
+    <ClCompile Include="GameS.cpp" />
     <ClCompile Include="Move.cpp" />
     <ClCompile Include="Piece.cpp" />
     <ClCompile Include="Square.cpp" />

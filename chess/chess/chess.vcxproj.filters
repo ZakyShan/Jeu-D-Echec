@@ -18,10 +18,10 @@
     <ClInclude Include="..\Model.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Gameplay.h">
+    <ClInclude Include="GameP.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="GameStatus.h">
+    <ClInclude Include="GameS.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Move.h">
@@ -65,10 +65,10 @@
     <ClCompile Include="Game.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Gameplay.cpp">
+    <ClCompile Include="GameP.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="GameStatus.cpp">
+    <ClCompile Include="GameS.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Move.cpp">
